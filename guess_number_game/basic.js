@@ -1,6 +1,6 @@
 const minNum = 1;
 const maxNum = 100;
-let answer = generateRandomNumber(); // Function to generate a random number
+let answer = generateRandomNumber();
 
 const gameRules = document.querySelector("#game_rules");
 const userGuessInput = document.querySelector("#user_guess");
@@ -32,10 +32,9 @@ function runGame() {
             resultMessage.textContent = "For højt. Prøv igen!";
         } else {
             resultMessage.textContent = `Korrekt! Det rigtige svar er ${answer}. Du brugte ${attempts} forsøg`;
-            // Reset game state for the next round
-            attempts = 0; // Reset attempts for the next round
-            userGuessInput.value = ""; // Clear the input field
-            answer = generateRandomNumber(); // Generate a new random number for the next round
+            attempts = 0; 
+            userGuessInput.value = "";
+            answer = generateRandomNumber();
         }
     }
 }

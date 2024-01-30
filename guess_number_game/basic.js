@@ -14,6 +14,7 @@ guessButton.addEventListener("click", function () {
 });
 
 function generateRandomNumber() {
+    // generere random
     return Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
 }
 
@@ -21,10 +22,13 @@ function runGame() {
     let guess = Number(userGuessInput.value);
 
     if (isNaN(guess)) {
+        // Hvis svaret ikke er et tal - fejlmeddelelse - input kan kun modtage tal men tilføjet for en sikkerhedsskyld
         resultMessage.textContent = "Skriv venligst en gyldigt nummer";
+        // Hvis svaret er mindre end minNum eller størrer end maxNum - fejlmeddelelse
     } else if (guess < minNum || guess > maxNum) {
         resultMessage.textContent = "Skriv venligst et gyldigt nummer";
     } else {
+        //Tilføj et brugt forsøg
         attempts++;
         if (guess < answer) {
             resultMessage.textContent = "For lavt. Prøv igen!";

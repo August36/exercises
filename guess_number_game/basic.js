@@ -2,6 +2,8 @@ const minNum = 1;
 const maxNum = 100;
 let answer = generateRandomNumber();
 
+console.log(answer)
+
 const gameRules = document.querySelector("#game_rules");
 const userGuessInput = document.querySelector("#user_guess");
 const resultMessage = document.querySelector("#result_message");
@@ -32,9 +34,16 @@ function runGame() {
             resultMessage.textContent = "For højt. Prøv igen!";
         } else {
             resultMessage.textContent = `Korrekt! Det rigtige svar er ${answer}. Du brugte ${attempts} forsøg`;
-            attempts = 0; 
+
+            resultMessage.classList.add('celebrate');
+
+            attempts = 0;
             userGuessInput.value = "";
             answer = generateRandomNumber();
+
+            setTimeout(() => {
+                resultMessage.classList.remove('celebrate');
+            }, 1000);
         }
     }
 }

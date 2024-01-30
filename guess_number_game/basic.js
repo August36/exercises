@@ -2,8 +2,6 @@ const minNum = 1;
 const maxNum = 100;
 let answer = generateRandomNumber();
 
-console.log(answer)
-
 const gameRules = document.querySelector("#game_rules");
 const userGuessInput = document.querySelector("#user_guess");
 const resultMessage = document.querySelector("#result_message");

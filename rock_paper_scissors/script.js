@@ -28,7 +28,7 @@ function shake(element) {
 
 // ******************* ROCK *******************
 rock.addEventListener("click", () => {
-  // hides win/lose/draw text when the game is restarted
+  // hides win/lose/draw text for when the game is restarted
   win.classList.add("hidden");
   draw.classList.add("hidden");
   lose.classList.add("hidden");
@@ -41,13 +41,11 @@ rock.addEventListener("click", () => {
   shake(player1);
   shake(player2);
   if (randomNumber === 1) {
-    console.log("rock");
     player2.classList.add("player", "rock");
     setTimeout(() => {
       draw.classList.remove("hidden");
     }, 1800);
   } else if (randomNumber === 2) {
-    console.log("paper");
     //change player2 img to paper
     player2.classList.add("player", "paper");
     //after 1.8 sec result text will be shown
@@ -55,7 +53,6 @@ rock.addEventListener("click", () => {
       lose.classList.remove("hidden");
     }, 1800);
   } else {
-    console.log("scissors");
     player2.classList.add("player", "scissors");
     setTimeout(() => {
       win.classList.remove("hidden");
@@ -76,19 +73,16 @@ paper.addEventListener("click", () => {
   shake(player1);
   shake(player2);
   if (randomNumber === 1) {
-    console.log("rock");
     player2.classList.add("player", "rock");
     setTimeout(() => {
       win.classList.remove("hidden");
     }, 1800);
   } else if (randomNumber === 2) {
-    console.log("paper");
     player2.classList.add("player", "paper");
     setTimeout(() => {
       draw.classList.remove("hidden");
     }, 1800);
   } else {
-    console.log("scissors");
     player2.classList.add("player", "scissors");
     setTimeout(() => {
       lose.classList.remove("hidden");
@@ -109,19 +103,16 @@ scissors.addEventListener("click", () => {
   shake(player1);
   shake(player2);
   if (randomNumber === 1) {
-    console.log("rock");
     player2.classList.add("player", "rock");
     setTimeout(() => {
       lose.classList.remove("hidden");
     }, 1800);
   } else if (randomNumber === 2) {
-    console.log("paper");
     player2.classList.add("player", "paper");
     setTimeout(() => {
       win.classList.remove("hidden");
     }, 1800);
   } else {
-    console.log("scissors");
     player2.classList.add("player", "scissors");
     setTimeout(() => {
       draw.classList.remove("hidden");

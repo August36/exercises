@@ -32,7 +32,7 @@ rock.addEventListener("click", () => {
   win.classList.add("hidden");
   draw.classList.add("hidden");
   lose.classList.add("hidden");
-  // Clear previous classes from player2
+  // Clear previous classes from player2 for when the game is restarted
   player2.classList.remove("player", "rock", "paper", "scissors");
   // generate random number
   const randomNumber =

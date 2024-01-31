@@ -13,24 +13,40 @@ const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
 
+function shake(element) {
+    element.classList.add("shake");
+}
+
 // Event listeners for buttons
 rock.addEventListener("click", () => {
     const randomNumber = Math.floor(Math.random() * (maxNum - minNum +1)) + minNum;
     if (randomNumber === 1) {
         console.log("rock");
-    }
-});
+    } else if (randomNumber === 2) {
+        console.log("paper");
+    } else {
+            console.log("scissors");
+        }
+    });
 
 paper.addEventListener("click", () => {
     const randomNumber = Math.floor(Math.random() * (maxNum - minNum +1)) + minNum;
-    if (randomNumber === 2) {
-        console.log("paper")
-    };
-});
+    if (randomNumber === 1) {
+        console.log("rock");
+    } else if (randomNumber === 2) {
+        console.log("paper");
+    } else {
+            console.log("scissors");
+        }
+    });
 
 scissors.addEventListener("click", () => {
     const randomNumber = Math.floor(Math.random() * (maxNum - minNum +1)) + minNum;
-    if (randomNumber === 3) {
-        console.log("scissors")
-    };
-});
+    if (randomNumber === 1) {
+        console.log("rock");
+    } else if (randomNumber === 2) {
+        console.log("paper");
+    } else {
+            console.log("scissors");
+        }
+    });

@@ -17,112 +17,114 @@ const scissors = document.querySelector(".scissors");
 
 // By making element a parameter to the function you can target any html element
 function shake(element) {
-    element.classList.add("shake");
-    // Removes shake animation after the duration (1.8sec)
-    setTimeout(() => {
-        element.classList.remove("shake");
-    }, 1800);
+  element.classList.add("shake");
+  // Removes shake animation after the duration (1.8sec)
+  setTimeout(() => {
+    element.classList.remove("shake");
+  }, 1800);
 }
 
 // ******************* EVENT LISTENERS *******************
 
 // ******************* ROCK *******************
 rock.addEventListener("click", () => {
-    // hides win/lose/draw text when the game is restarted
-    win.classList.add("hidden")
-    draw.classList.add("hidden")
-    lose.classList.add("hidden")
-    // Clear previous classes from player2
-    player2.classList.remove("player", "rock", "paper", "scissors");
-    // generate random number
-    const randomNumber = Math.floor(Math.random() * (maxNum - minNum +1)) + minNum;
-    // call shake function and target each player
-    shake(player1);
-    shake(player2);
-    if (randomNumber === 1) {
-        console.log("rock");
-        player2.classList.add("player", "rock");
-        setTimeout(() => {
-            draw.classList.remove("hidden");
-        }, 1800);
-    } else if (randomNumber === 2) {
-        console.log("paper");
-        //change player2 img to paper
-        player2.classList.add("player", "paper");
-        //after 1.8 sec result text will be shown
-        setTimeout(() => {
-            lose.classList.remove("hidden");
-        }, 1800);
-        } else {
-        console.log("scissors");
-        player2.classList.add("player", "scissors");
-        setTimeout(() => {
-            win.classList.remove("hidden");
-        }, 1800);
-    }
+  // hides win/lose/draw text when the game is restarted
+  win.classList.add("hidden");
+  draw.classList.add("hidden");
+  lose.classList.add("hidden");
+  // Clear previous classes from player2
+  player2.classList.remove("player", "rock", "paper", "scissors");
+  // generate random number
+  const randomNumber =
+    Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+  // call shake function and target each player
+  shake(player1);
+  shake(player2);
+  if (randomNumber === 1) {
+    console.log("rock");
+    player2.classList.add("player", "rock");
+    setTimeout(() => {
+      draw.classList.remove("hidden");
+    }, 1800);
+  } else if (randomNumber === 2) {
+    console.log("paper");
+    //change player2 img to paper
+    player2.classList.add("player", "paper");
+    //after 1.8 sec result text will be shown
+    setTimeout(() => {
+      lose.classList.remove("hidden");
+    }, 1800);
+  } else {
+    console.log("scissors");
+    player2.classList.add("player", "scissors");
+    setTimeout(() => {
+      win.classList.remove("hidden");
+    }, 1800);
+  }
 });
 
 // ******************* PAPER *******************
 
-
 paper.addEventListener("click", () => {
-    player1.classList.add("player", "paper");
-    win.classList.add("hidden")
-    draw.classList.add("hidden")
-    lose.classList.add("hidden")
-    player2.classList.remove("player", "rock", "paper", "scissors");
-    const randomNumber = Math.floor(Math.random() * (maxNum - minNum +1)) + minNum;
-    shake(player1);
-    shake(player2);
-    if (randomNumber === 1) {
-        console.log("rock");
-        player2.classList.add("player", "rock");
-        setTimeout(() => {
-            win.classList.remove("hidden");
-        }, 1800);
-    } else if (randomNumber === 2) {
-        console.log("paper");
-        player2.classList.add("player", "paper");
-        setTimeout(() => {
-            draw.classList.remove("hidden");
-        }, 1800);
-    } else {
-        console.log("scissors");
-        player2.classList.add("player", "scissors");
-        setTimeout(() => {
-            lose.classList.remove("hidden");
-        }, 1800);        }
-    });
+  player1.classList.add("player", "paper");
+  win.classList.add("hidden");
+  draw.classList.add("hidden");
+  lose.classList.add("hidden");
+  player2.classList.remove("player", "rock", "paper", "scissors");
+  const randomNumber =
+    Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+  shake(player1);
+  shake(player2);
+  if (randomNumber === 1) {
+    console.log("rock");
+    player2.classList.add("player", "rock");
+    setTimeout(() => {
+      win.classList.remove("hidden");
+    }, 1800);
+  } else if (randomNumber === 2) {
+    console.log("paper");
+    player2.classList.add("player", "paper");
+    setTimeout(() => {
+      draw.classList.remove("hidden");
+    }, 1800);
+  } else {
+    console.log("scissors");
+    player2.classList.add("player", "scissors");
+    setTimeout(() => {
+      lose.classList.remove("hidden");
+    }, 1800);
+  }
+});
 
 // ******************* SCISSORS *******************
 
-
 scissors.addEventListener("click", () => {
-    player1.classList.add("player", "scissors");
-    win.classList.add("hidden")
-    draw.classList.add("hidden")
-    lose.classList.add("hidden")
-    player2.classList.remove("player", "rock", "paper", "scissors");
-    const randomNumber = Math.floor(Math.random() * (maxNum - minNum +1)) + minNum;
-    shake(player1);
-    shake(player2);
-    if (randomNumber === 1) {
-        console.log("rock");
-        player2.classList.add("player", "rock");
-        setTimeout(() => {
-            lose.classList.remove("hidden");
-        }, 1800);
-        } else if (randomNumber === 2) {
-        console.log("paper");
-        player2.classList.add("player", "paper");
-        setTimeout(() => {
-            win.classList.remove("hidden");
-        }, 1800);
-    } else {
-        console.log("scissors");
-        player2.classList.add("player", "scissors");
-        setTimeout(() => {
-            draw.classList.remove("hidden");
-        }, 1800);
-    }
+  player1.classList.add("player", "scissors");
+  win.classList.add("hidden");
+  draw.classList.add("hidden");
+  lose.classList.add("hidden");
+  player2.classList.remove("player", "rock", "paper", "scissors");
+  const randomNumber =
+    Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+  shake(player1);
+  shake(player2);
+  if (randomNumber === 1) {
+    console.log("rock");
+    player2.classList.add("player", "rock");
+    setTimeout(() => {
+      lose.classList.remove("hidden");
+    }, 1800);
+  } else if (randomNumber === 2) {
+    console.log("paper");
+    player2.classList.add("player", "paper");
+    setTimeout(() => {
+      win.classList.remove("hidden");
+    }, 1800);
+  } else {
+    console.log("scissors");
+    player2.classList.add("player", "scissors");
+    setTimeout(() => {
+      draw.classList.remove("hidden");
+    }, 1800);
+  }
 });

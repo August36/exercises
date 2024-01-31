@@ -14,7 +14,6 @@ guessButton.addEventListener("click", function () {
 });
 
 function generateRandomNumber() {
-    // generere random
     return Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
 }
 

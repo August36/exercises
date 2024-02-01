@@ -28,7 +28,9 @@ function shake(element) {
 
 // ******************* ROCK *******************
 rock.addEventListener("click", () => {
+  //remove previous classes from player1 for when the game is restarted
   player1.classList.remove("rock", "paper", "scissors");
+  // add the right class
   player1.classList.add("player", "rock");
   // hides win/lose/draw text for when the game is restarted
   win.classList.add("hidden");

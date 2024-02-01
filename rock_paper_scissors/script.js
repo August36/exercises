@@ -28,6 +28,8 @@ function shake(element) {
 
 // ******************* ROCK *******************
 rock.addEventListener("click", () => {
+  player1.classList.remove("rock", "paper", "scissors");
+  player1.classList.add("player", "rock");
   // hides win/lose/draw text for when the game is restarted
   win.classList.add("hidden");
   draw.classList.add("hidden");
@@ -63,6 +65,7 @@ rock.addEventListener("click", () => {
 // ******************* PAPER *******************
 
 paper.addEventListener("click", () => {
+  player1.classList.remove("rock", "paper", "scissors");
   player1.classList.add("player", "paper");
   win.classList.add("hidden");
   draw.classList.add("hidden");
@@ -93,6 +96,7 @@ paper.addEventListener("click", () => {
 // ******************* SCISSORS *******************
 
 scissors.addEventListener("click", () => {
+  player1.classList.remove("rock", "paper", "scissors");
   player1.classList.add("player", "scissors");
   win.classList.add("hidden");
   draw.classList.add("hidden");

@@ -1,6 +1,8 @@
 const minNum = 1;
 const maxNum = 100;
 
+const computerGuess = document.querySelector("#computerGuess");
+
 const startGameBtn = document.querySelector("#startGameBtn");
 const correctAnswerBtn = document.querySelector("#correctAnswerBtn");
 const tooLowBtn = document.querySelector("#tooLowBtn");
@@ -21,6 +23,6 @@ function generateRandomNumber() {
 }
 
 function runGame() {
-    
+    computerGuess.textContent = generateRandomNumber();
 }
 

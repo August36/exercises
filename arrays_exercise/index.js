@@ -35,3 +35,6 @@ indexOf();
 
 const letters = array.from("abcefghijklmn");
 // Her laver vi stringen "abcefghijklmn" om til et array
+
+split();
+// split()-metoden i JavaScript bruges til at opdele en streng i et array af substrings baseret på en specificeret adskiller. Syntaksen for split() er som følger: streng.split(adskiller[, grænse]);

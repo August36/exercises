@@ -12,7 +12,7 @@
 
 .game_container {
     width: 800px;
-    height: 450px;
+    height: 550px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -67,7 +67,7 @@
 
 #result_message {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 26px;
+    font-size: 22px;
     margin: auto;
     font-weight: 600;
     color: azure;

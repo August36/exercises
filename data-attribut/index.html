@@ -12,15 +12,17 @@
 </html>
 
 <style>
-  [data-theme="hawaii"] {
-    background-color: green;
-    color: pink;
-  }
+  /* For at lave en variable i css = --bg. Nu har vi en variable der hedder --bg
+  
 
-  [data-theme="boring"] {
-    background-color: grey;
-    color: white;
+  :root {      - her laver vi en pseudoclass der gør alle variablerne globale
+  --blue: #1e90ff;
+  --white: #ffffff;
+}
+  body {
+    background-color: var(--blue); - en variable der hedder blue som targeter background-color
   }
+  */
 
   [data-filter="fox"] {
     background-color: brown;

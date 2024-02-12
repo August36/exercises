@@ -6,18 +6,16 @@
     <title>Document</title>
   </head>
   <header>
-    <label for="cars">Choose a car:</label>
+    <label for="cars">Choose a theme:</label>
 
-    <select name="cars" id="cars">
-      <option value="volvo">Volvo</option>
-      <option value="saab">Saab</option>
-      <option value="mercedes">Mercedes</option>
-      <option value="audi">Audi</option>
+    <select name="themes" id="themes">
+      <option value="hawaii">Hawaii</option>
+      <option value="boring">Boring</option>
+      <option value="cool">Cool</option>
     </select>
   </header>
   <body data-theme="hawaii">
-    <h1>HEY, brown is fox black is bat</h1>
-    <button>change colors</button>
+    <h1>content</h1>
   </body>
 </html>
 
@@ -31,14 +29,29 @@
     background-color: grey;
     color: white;
   }
+
+  [data-theme="cool"] {
+    background-color: rgb(42, 7, 7);
+    color: rgb(28, 78, 69);
+  }
 </style>
 
 <script>
   document
-    .querySelector("button")
-    .addEventListener("pointerdown", btnPointerDown);
-
-  function btnPointerDown() {
-    document.querySelector("body").dataset.theme = "boring";
-  }
+    .querySelector("#themes")
+    .addEventListener("change", function() {
+      var selectedValue = this.value;
+      document.querySelector("body").dataset.theme = selectedValue;
+    });
+  
+  // function btnPointerDownHawaii() {
+  //   document.querySelector("body").dataset.theme = "boring";
+  // }
+  // document
+  //   .querySelector("option[value=boring]")
+  //   .addEventListener("pointerdown", btnPointerDownBoring);
+  
+  // function btnPointerDownBoring() {
+  //   document.querySelector("body").dataset.theme = "boring";
+  // }
 </script>

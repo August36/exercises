@@ -23,8 +23,52 @@
 
 // Lav bogstaver i en string til upper/lowercase
 
-const aName = "LKadjaslkLKJ";
+// const aName = "LKadjaslkLKJ";
 
-console.log(
-  aName.slice(0, 2) + aName[2].toUpperCase() + aName.slice(3).toLowerCase()
-);
+// console.log(
+//   aName.slice(0, 2) + aName[2].toUpperCase() + aName.slice(3).toLowerCase()
+// );
+
+// ______________________________________________________________________________________________
+
+// Profanity filter
+//Skifter var ud med const
+
+// const curesewords = [
+//   { bad: "var", good: "const" },
+//   { bad: "float", good: "grid" },
+//   { bad: "marquee", good: "just don't" },
+// ];
+// document
+//   .querySelector("button")
+//   .addEventListener("pointerdown", checkIfSentenceContainProfanity);
+
+// function checkIfSentenceContainProfanity() {
+//   const theTextElement = document.querySelector("p");
+//   let theText = theTextElement.textContent;
+//   theText = theText.replace("var", "const");
+
+//   console.log(theText);
+// }
+
+//_____________Skifter alle de dårlige ord ud_____________________
+
+const curseWords = [
+  { bad: "var", good: "const" },
+  { bad: "float", good: "grid" },
+  { bad: "marquee", good: "just don't" },
+];
+document
+  .querySelector("button")
+  .addEventListener("pointerdown", checkIfSentenceContainProfanity);
+
+function checkIfSentenceContainProfanity() {
+  const theTextElement = document.querySelector("p");
+  let theText = theTextElement.textContent;
+
+  curseWords.forEach((curseWord) => {
+    theText = theText.replaceAll(curseWord.bad, curseWord.good);
+  });
+
+  console.log(theText);
+}

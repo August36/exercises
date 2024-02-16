@@ -5,53 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <header>
-    <label for="cars">Choose a theme:</label>
-
-    <select name="themes" id="themes">
-      <option value="hawaii">Hawaii</option>
-      <option value="boring">Boring</option>
-      <option value="cool">Cool</option>
-    </select>
-  </header>
   <body data-theme="hawaii">
+    <header>
+      <p>some text in the header</p>
+      <label for="cars">Choose a theme:</label>
+      <select name="themes" id="themes">
+        <option value="hawaii">Hawaii</option>
+        <option value="boring">Boring</option>
+        <option value="cool">Cool</option>
+      </select>
+    </header>
     <h1>content</h1>
+    <footer>
+      <p>some text in the footer</p>
+    </footer>
+
+    <script>
+      document.querySelector("#themes").addEventListener("change", function () {
+        var selectedValue = this.value;
+        document.querySelector("body").dataset.theme = selectedValue;
+        document.querySelector("header").dataset.theme = selectedValue;
+        document.querySelector("footer").dataset.theme = selectedValue;
+      });
+    </script>
   </body>
 </html>
 
 <style>
-  [data-theme="hawaii"] {
-    background-color: green;
-    color: pink;
+  :root {
+    --hawaii-body-bg-color: green;
+    --hawaii-body-text-color: pink;
+    --hawaii-header-bg-color: yellow;
+    --hawaii-header-text-color: aqua;
+    --hawaii-footer-bg-color: lightblue;
+    --hawaii-footer-text-color: lightgreen;
+
+    --boring-body-bg-color: grey;
+    --boring-body-text-color: white;
+    --boring-header-bg-color: black;
+    --boring-header-text-color: darkgrey;
+    --boring-footer-bg-color: black;
+    --boring-footer-text-color: lightgrey;
+
+    --cool-body-bg-color: darkred;
+    --cool-body-text-color: lightseagreen;
+    --cool-header-bg-color: pink;
+    --cool-header-text-color: orange;
+    --cool-footer-bg-color: darkblue;
+    --cool-footer-text-color: white;
   }
 
-  [data-theme="boring"] {
-    background-color: grey;
-    color: white;
+  /* ****HAWAII**** */
+  body[data-theme="hawaii"] {
+    background-color: var(--hawaii-body-bg-color);
+    color: var(--hawaii-body-text-color);
+  }
+  header[data-theme="hawaii"] {
+    background-color: var(--hawaii-header-bg-color);
+    color: var(--hawaii-header-text-color);
+  }
+  footer[data-theme="hawaii"] {
+    background-color: var(--hawaii-footer-bg-color);
+    color: var(--hawaii-footer-text-color);
   }
 
-  [data-theme="cool"] {
-    background-color: rgb(42, 7, 7);
-    color: rgb(28, 78, 69);
+  /* ***BORING*** */
+  body[data-theme="boring"] {
+    background-color: var(--boring-body-bg-color);
+    color: var(--boring-body-text-color);
+  }
+  header[data-theme="boring"] {
+    background-color: var(--boring-header-bg-color);
+    color: var(--boring-header-text-color);
+  }
+  footer[data-theme="boring"] {
+    background-color: var(--boring-footer-bg-color);
+    color: var(--boring-footer-text-color);
+  }
+
+  /* ***COOL*** */
+  body[data-theme="cool"] {
+    background-color: var(--cool-body-bg-color);
+    color: var(--cool-body-text-color);
+  }
+  header[data-theme="cool"] {
+    background-color: var(--cool-header-bg-color);
+    color: var(--cool-header-text-color);
+  }
+  footer[data-theme="cool"] {
+    background-color: var(--cool-footer-bg-color);
+    color: var(--cool-footer-text-color);
   }
 </style>
-
-<script>
-  document
-    .querySelector("#themes")
-    .addEventListener("change", function() {
-      var selectedValue = this.value;
-      document.querySelector("body").dataset.theme = selectedValue;
-    });
-  
-  // function btnPointerDownHawaii() {
-  //   document.querySelector("body").dataset.theme = "boring";
-  // }
-  // document
-  //   .querySelector("option[value=boring]")
-  //   .addEventListener("pointerdown", btnPointerDownBoring);
-  
-  // function btnPointerDownBoring() {
-  //   document.querySelector("body").dataset.theme = "boring";
-  // }
-</script>

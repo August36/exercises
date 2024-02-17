@@ -6,7 +6,7 @@
     <title>Document</title>
   </head>
   <body data-theme="hawaii">
-    <header>
+    <header data-theme="hawaii">
       <p>some text in the header</p>
       <label for="cars">Choose a theme:</label>
       <select name="themes" id="themes">
@@ -16,16 +16,45 @@
       </select>
     </header>
     <h1>content</h1>
-    <footer>
+    <footer data-theme="hawaii">
       <p>some text in the footer</p>
     </footer>
 
     <script>
-      document.querySelector("#themes").addEventListener("change", function () {
-        var selectedValue = this.value;
-        document.querySelector("body").dataset.theme = selectedValue;
-        document.querySelector("header").dataset.theme = selectedValue;
-        document.querySelector("footer").dataset.theme = selectedValue;
+      //when the site is loaded a function is called
+      // In the function, savedTheme variable is created with a value that is equal to what is saved in localStorage
+      // localStorage is an object and makes "selectedTheme" a key in the object
+      // The if statement checks if savedTheme has a truthy value (a value that isn't null)
+      // and if savedTheme has a truthy value the HTML element's body,header,footer and the dropdown with the id themes is set to be equal to savedTheme (remember saved theme has the value of what is stored in localStorage)
+      document.addEventListener("DOMContentLoaded", function () {
+        const savedTheme = localStorage.getItem("selectedTheme");
+
+        if (savedTheme) {
+          document.querySelector("body").dataset.theme = savedTheme;
+          document.querySelector("header").dataset.theme = savedTheme;
+          document.querySelector("footer").dataset.theme = savedTheme;
+          document.querySelector("#themes").value = savedTheme;
+        }
+
+        // Then an eventListener is added to the dropdownmenu #themes
+        //when the eventlistner is activated a function will run that creates a variable called selectedValue and makes it equal to this.value
+        // in javascript "this" refers to the context in which a function is executed
+        // so in this context "this" refers to the dropdownmenu
+        // with dot notation "value" is added after "this", which represents the value of the html option element
+        // when you select an option in the dropdown menu, the "value" attribute of the selected <option> element becomes the value of the dropdown menu.
+        // TL:DR "this.value" gets the current selected option in the dropdownMenu that triggered the "change" event, and it's assigned to the variable "selectedValue"
+        document
+          .querySelector("#themes")
+          .addEventListener("change", function () {
+            let selectedValue = this.value;
+            document.querySelector("body").dataset.theme = selectedValue;
+            document.querySelector("header").dataset.theme = selectedValue;
+            document.querySelector("footer").dataset.theme = selectedValue;
+            //The setItem method sets up a key-value pair in localStorage object
+            //the key-value pair "selectedTheme" becomes the key and "selectedValue" becomes the value of the key
+            //selectedValue represents the currently selected theme, which has been retrieved from the dropdown menu and stored the variable "selectedValue"
+            localStorage.setItem("selectedTheme", selectedValue);
+          });
       });
     </script>
   </body>
@@ -37,7 +66,7 @@
     --hawaii-body-text-color: pink;
     --hawaii-header-bg-color: yellow;
     --hawaii-header-text-color: aqua;
-    --hawaii-footer-bg-color: lightblue;
+    --hawaii-footer-bg-color: brown;
     --hawaii-footer-text-color: lightgreen;
 
     --boring-body-bg-color: grey;

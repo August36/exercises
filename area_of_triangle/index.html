@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function rectangleArea(length, height) {
+            let result = length * height;
+            return result;
+        }
+
+        console.log(rectangleArea(10, 8));
+
+        function convertToSquareFeet(squareMeters) {
+            const squareFeetPerSquareMeter = 10.7639;
+            return squareMeters * squareFeetPerSquareMeter;
+        }
+
+        const arealInSquareFeet = convertToSquareFeet(rectangleArea(6, 12));
+        console.log(arealInSquareFeet);
+
+    </script>
+</body>
+</html>

@@ -1,30 +1,43 @@
-let tricks = ["ollie", "fs 180", "bs 180", "shuvit", "fs shuvit", "kickflip", "heelflip"];
+let tricks = [];
 
 let trickList = document.getElementById("trickList");
 let trickListDone = document.getElementById("trickListDone");
+let addTask = document.getElementById("addTask");
+let addTaskButton = document.getElementById("addTaskButton");
 
 let trickListDoneArray = Array.from(trickListDone.querySelectorAll("li"));
 
-tricks.forEach(trick => {
-    let listItem = document.createElement("li");
-    listItem.textContent = trick;
-    trickList.appendChild(listItem);
+// Function to add a new trick to the trickList
+function addTrick() {
+    let trickName = addTask.value.trim(); // Get the value from the input field
+    if (trickName !== "") { // Check if the input is not empty
+        // Create a new list item for the trickList
+        let listItem = document.createElement("li");
+        listItem.textContent = trickName;
+        trickList.appendChild(listItem);
 
-    listItem.addEventListener("click", () => {
-        const clickedTrick = listItem.textContent;
-        const index = tricks.indexOf(clickedTrick);
+        // Clear the input field
+        addTask.value = "";
+    }
+}
 
-        if (index !== -1) {
-            const removedTrick = tricks.splice(index, 1)[0];
-            listItem.remove(); // Remove the clicked list item from trickList
+// Add event listener to the addTaskButton
+addTaskButton.addEventListener("click", addTrick);
 
-            // Create a new list item for the trickListDone
-            const newListItem = document.createElement("li");
-            newListItem.textContent = removedTrick;
+// Move trick from trickList to trickListDone
+trickList.addEventListener("click", (event) => {
+    if (event.target.tagName === "LI") {
+        const clickedTrick = event.target.textContent;
+        event.target.remove(); // Remove the clicked list item from trickList
 
-            // Append the new list item to trickListDone
-            trickListDone.appendChild(newListItem);
-        }
-    });
+        // Create a new list item for the trickListDone directly from the clicked trick
+        const newListItem = document.createElement("li");
+        newListItem.textContent = clickedTrick;
+
+        // Append the new list item to trickListDone
+        trickListDone.appendChild(newListItem);
+
+        // Update the trickListDoneArray
+        trickListDoneArray = Array.from(trickListDone.querySelectorAll("li"));
+    }
 });
-

@@ -1,8 +1,68 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
 body{
-    margin: 20px 200px 20px 200px;
+    display: flex;
+    justify-content: center;
+}
+
+h1{
+    color: rgb(242, 237, 237);
+    font-weight: 1000;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    width: 400px;
+    background-color: rgb(87, 89, 88);
+    padding: 10px;
+    border-radius: 15px;
 }
 
 section{
+    width: 400px;
+    min-height: 50px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    background-color: rgb(36, 38, 38);
+    border-radius: 10px;
+}
+
+#addTask{
+    height: 30px;
+    width: 300px;
+    border-radius: 5px;
+    margin: 10px;
+    border: none;
+}
+
+#addTaskButton{
+    height: 35px;
+    width: 150px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    border: none;
+    background-color: rgb(224, 127, 35);
+    color: rgb(242, 237, 237);
+}
+
+#trickList, #trickListDone {
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 10px;
+    color: rgb(242, 237, 237);
+}
+
+li{
+    color: rgb(151, 151, 151);
+    font-weight: 400;
+    margin-left: 20px;
+    padding: 5px;
 }

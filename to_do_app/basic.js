@@ -14,11 +14,50 @@ function addTrick() {
         // Create a new list item for the trickList
         let listItem = document.createElement("li");
         listItem.textContent = trickName;
+
+        // show count span
+        let countSpan = document.createElement("span");
+        countSpan.textContent="1";
+        countSpan.classList.add("countSpan")
+
+        // +1 button
+        let addBtn = document.createElement("button");
+        addBtn.textContent ="+";
+        addBtn.classList.add("addBtn")
+        addBtn.addEventListener("click", increaseAmount);
+
+        // -1 button
+        let subtractBtn = document.createElement("button");
+        subtractBtn.classList.add("subtractBtn")
+        subtractBtn.textContent ="-";
+        subtractBtn.addEventListener("click", decreaseAmount);
+
+
+        // Append buttons and span to list item
+        listItem.appendChild(countSpan);
+        listItem.appendChild(addBtn);
+        listItem.appendChild(subtractBtn);
+
         trickList.appendChild(listItem);
 
         // Clear the input field
         addTask.value = "";
     }
+}
+
+function increaseAmount(event) {
+    let listItem = event.target.parentNode;
+    let countSpan = listItem.querySelector("span");
+    let count = parseInt(countSpan.textContent);
+    count++;
+    countSpan.textContent = count;
+}
+function decreaseAmount(event) {
+    let listItem = event.target.parentNode;
+    let countSpan = listItem.querySelector("span");
+    let count = parseInt(countSpan.textContent);
+    count--;
+    countSpan.textContent = count;
 }
 
 // Add event listener to the addTaskButton
@@ -36,6 +75,12 @@ trickList.addEventListener("click", (event) => {
 
         // Append the new list item to trickListDone
         trickListDone.appendChild(newListItem);
+
+        // Hide buttons in the new list item
+        newListItem.querySelectorAll("button").forEach(button => {
+            button.style.display = "none";
+            button.textContent = "none"
+        });
 
         // Update the trickListDoneArray
         trickListDoneArray = Array.from(trickListDone.querySelectorAll("li"));

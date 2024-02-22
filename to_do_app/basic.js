@@ -4,6 +4,7 @@ let trickList = document.getElementById("trickList");
 let trickListDone = document.getElementById("trickListDone");
 let addTask = document.getElementById("addTask");
 let addTaskButton = document.getElementById("addTaskButton");
+let listSelection = document.getElementById("listSelection");
 
 let trickListDoneArray = Array.from(trickListDone.querySelectorAll("li"));
 
@@ -86,3 +87,25 @@ trickList.addEventListener("click", (event) => {
         trickListDoneArray = Array.from(trickListDone.querySelectorAll("li"));
     }
 });
+
+// Event listener to switch between lists
+listSelection.addEventListener("change", (event) => {
+    const selectedListId = event.target.value;
+    if (selectedListId === "trickList") {
+        trickList.style.display = "block";
+        trickListDone.style.display = "none";
+        document.querySelector(".trickListContainer").style.display = "block";
+        document.querySelector(".trickListDoneContainer").style.display = "none";
+        trickList.style.textAlign = "center"; // Ensure text alignment remains centered
+    } else if (selectedListId === "trickListDone") {
+        trickList.style.display = "none";
+        trickListDone.style.display = "block";
+        document.querySelector(".trickListContainer").style.display = "none";
+        document.querySelector(".trickListDoneContainer").style.display = "block";
+        trickListDone.style.textAlign = "center"; // Ensure text alignment remains centered
+    }
+});
+
+// Initially hide the "Tricks Done" list and its surrounding section
+trickListDone.style.display = "none";
+document.querySelector(".trickListDoneContainer").style.display = "none";

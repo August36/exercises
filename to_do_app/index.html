@@ -11,11 +11,20 @@
         <h1>Skateboard trick app</h1>
     <input id="addTask" type="text" placeholder="Add a trick">
     <button id="addTaskButton">Add trick</button>
-    <section>
+    <section class="trickListContainer">
         <ul id="trickList">Tricks 2 do</ul>
-        <ul id="trickListDone">Tricks done</ul>
     </section>
-    <p>Press the added trick to move it to the "tricks done" list</p>
+        <section class="trickListDoneContainer">
+            <ul id="trickListDone">Tricks done</ul>
+        </section>
+    <p>Press trick to move to "tricks done"</p>
+    <div>
+    <label for="listSelection">Select list:</label>
+    <select id="listSelection">
+        <option value="trickList">Tricks to do</option>
+        <option value="trickListDone">Tricks done</option>
+    </select>
+    </div>
     </div>
     <script src="basic.js"></script>
 </body>

@@ -77,12 +77,6 @@ trickList.addEventListener("click", (event) => {
         // Append the new list item to trickListDone
         trickListDone.appendChild(newListItem);
 
-        // Hide buttons in the new list item
-        newListItem.querySelectorAll("button").forEach(button => {
-            button.style.display = "none";
-            button.textContent = "none"
-        });
-
         // Update the trickListDoneArray
         trickListDoneArray = Array.from(trickListDone.querySelectorAll("li"));
     }

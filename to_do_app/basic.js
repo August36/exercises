@@ -82,6 +82,24 @@ trickList.addEventListener("click", (event) => {
     }
 });
 
+// Move tricks from trickListDone back to trickList
+trickListDone.addEventListener("click", (event) => {
+    if (event.target.tagName === "LI") {
+        const clickedTrick = event.target.textContent;
+        event.target.remove(); // Remove the clicked list item from trickListDone
+
+        // Create a new list item for the trickList directly from the clicked trick
+        const newListItem = document.createElement("li");
+        newListItem.textContent = clickedTrick;
+
+        // Append the new list item to trickList
+        trickList.appendChild(newListItem);
+
+        // Update the trickListDoneArray
+        trickListDoneArray = Array.from(trickListDone.querySelectorAll("li"));
+    }
+});
+
 // Event listener to switch between lists
 listSelection.addEventListener("change", (event) => {
     const selectedListId = event.target.value;
